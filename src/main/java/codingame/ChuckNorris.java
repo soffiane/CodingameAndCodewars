@@ -30,7 +30,7 @@ import java.util.stream.Collectors;
 import java.util.stream.IntStream;
 
 public class ChuckNorris {
-
+/*
     public static void process(String message) {
         //Scanner in = new Scanner(System.in);
         //String MESSAGE = in.nextLine();
@@ -94,23 +94,29 @@ public class ChuckNorris {
         }
         return result;
     }
+}*/
+
+    static String encodingToBinary(String inStr) {
+        String binStr = "";
+        char[] inChar = inStr.toCharArray();
+        for (char c : inChar) {
+            //on passe le code ascii du caractere + 128
+            String tmpStr = Integer.toBinaryString(c + 128);
+            binStr += tmpStr.substring(1);
+        }
+        return binStr;
+    }
+
+    public static void process(String MESSAGE) {
+        String answer = (" " + encodingToBinary(MESSAGE)).replace("01", "0 1").replace("10", "1 0").replace(" 1", " 1 1").replace(" 0", " 00 0").replace("1", "0").trim();
+        System.out.println(answer);
+    }
+
+    public static void main(String args[]) {
+        process("C");
+        process("CC");
+        process("%"); //00 0 0 0 00 00 0 0 00 0 0 0 | 0 0 00 00 0 0 00 0 0 0
+        process("Chuck Norris' keyboard has 2 keys: 0 and white space.");
+    }
 }
-/**
- * static String encodingToBinary(String inStr) {
- * 		String binStr = "";
- * 		char[] inChar = inStr.toCharArray();
- * 		for (char c : inChar) {
- * 			String tmpStr = Integer.toBinaryString(c + 128);
- * 			binStr += tmpStr.substring(1);
- *                }
- * 		return binStr;* 	}
- *
- *     public static void main(String args[]) {
- *         Scanner in = new Scanner(System.in);
- *         String MESSAGE = in.nextLine();
- *
- *         String answer = (" " + encodingToBinary(MESSAGE)).replace("01", "0 1").replace("10", "1 0").replace(" 1", " 1 1").replace(" 0", " 00 0").replace("1", "0").trim();
- *
- *         System.out.println(answer);
- *     }
- */
+
