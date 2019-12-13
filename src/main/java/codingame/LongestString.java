@@ -3,6 +3,7 @@ package codingame;
 import java.util.Arrays;
 import java.util.Comparator;
 import java.util.Optional;
+import java.util.stream.Stream;
 
 public class LongestString {
 
@@ -16,13 +17,10 @@ public class LongestString {
         if (array == null || array.length == 0) {
             return null;
         }
-        //convertir Object[] en String[] ou en List<String>
-        /*for (int i = 0; i < array.length; i++)
-            strArray[i] = String.valueOf(array[i]);*/
-
-        //Arrays.stream(array).flatMap(x -> Arrays.stream(x)).map(Object::toString).forEach(System.out::println);//max(Comparator.comparing(s -> s.length()));
-        // XXX implement me !
-        return "";
+        //deepToString permet d'extraire tous les strings des Arrays de Arrays de... dans un String unique
+        String s = Arrays.deepToString(array);
+        String[] split = s.replaceAll("[\\[\\](){}]", "").split(",");
+        return Arrays.stream(split).max(Comparator.comparingInt(String::length)).get();
 
     }
 
