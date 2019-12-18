@@ -1,7 +1,5 @@
 package codingame;
 
-import com.sun.deploy.util.StringUtils;
-
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 

@@ -1,7 +1,8 @@
 /**
+ * <<<<<<< Updated upstream
  * L’Hippodrome de Casablanca organise un nouveau type de course de chevaux : les duels. Lors d’un duel, seulement deux chevaux participent à la course.
  * Pour que la course soit intéressante, il faut sélectionner deux chevaux qui ont une puissance similaire.
- *
+ * <p>
  * Écrivez un programme qui, à partir d’un ensemble donné de puissances, identifie les deux puissances les plus proches et affiche leur écart avec un nombre entier positif.
  */
 package codingame;
@@ -24,14 +25,11 @@ public class CourseDeChevaux {
         }
 
         Collections.sort(horses);
-        for (int i=0; i<N-1; i++) {
-            if (horses.get(i+1) - horses.get(i) < diff) {
-                diff = horses.get(i+1) - horses.get(i);
+        for (int i = 0; i < N - 1; i++) {
+            if (horses.get(i + 1) - horses.get(i) < diff) {
+                diff = horses.get(i + 1) - horses.get(i);
             }
         }
-
-        // Write an action using System.out.println()
-        // To debug: System.err.println("Debug messages...");
 
         System.out.println(diff);
     }
