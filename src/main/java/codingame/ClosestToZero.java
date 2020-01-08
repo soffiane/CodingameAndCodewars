@@ -15,13 +15,11 @@ class ClosestToZero {
 				closestToZero = ints[i];
 			}
 		}
-		return closestToZero;
+		return closestToZero > 0 ? closestToZero : Math.abs(closestToZero);
 	}
 	
 	public static void main (String [] args) {
-		System.out.println(Integer.MAX_VALUE);
-		System.out.println(Integer.MIN_VALUE);
-
+		System.out.print(closestToZero(new int[]{-2,2}));
 	}
 
 	//Le résultat est correct avec un jeu de données simple: {7 5 9 1 4} -> 1
