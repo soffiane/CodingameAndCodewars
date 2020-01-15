@@ -16,7 +16,6 @@ public class Main {
                 return s2.compareTo(s1);
             }
         };
-
         Comparator<String> size = Comparator.comparingInt(String::length);
         IntStream.range(1,1000).boxed().map(i ->i.toString())
                 .sorted(alphabetical.thenComparing(size))

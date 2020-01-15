@@ -5,17 +5,20 @@ class ClosestToZero {
 	/** @return the number that is closest to zero */
 	static int closestToZero(int[] ints) {
 		//Utiliser Math.Abs()
-		int closestToZero = Integer.MAX_VALUE;
-
 		if (ints == null || ints.length == 0) {
 			return 0;
 		}
-		for (int i = 0; i < ints.length - 1; i++) {
-			if (Math.abs(closestToZero) > Math.abs(ints[i])) {
-				closestToZero = ints[i];
+		int closestToZero = ints[0];
+		for (int i =0;i<ints.length;i++) {
+			int abs = Math.abs(ints[i]);
+			int absClosest = Math.abs(closestToZero);
+			if (abs < absClosest) {
+				closestToZero = abs;
+			} else if (abs == absClosest && closestToZero < 0) {
+				closestToZero = i;
 			}
 		}
-		return closestToZero > 0 ? closestToZero : Math.abs(closestToZero);
+		return closestToZero;
 	}
 	
 	public static void main (String [] args) {

@@ -8,7 +8,9 @@ public class RechercheDichotomique {
         /*int start = 0;
         int end = ints.length - 1;
         boolean found = false;
-
+        if(ints.length == 0){
+            return false;
+        }
         do {
             int mil = (start + end) / 2;
             if(ints[mil] == k){

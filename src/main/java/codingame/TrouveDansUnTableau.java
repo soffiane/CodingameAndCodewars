@@ -32,6 +32,7 @@ class TrouveDansUnTableau {
 
 	static boolean exists(int[] ints, int k) {
 
+		boolean b = Arrays.stream(ints).parallel().anyMatch(value -> value == k);
 		if(ints.length == 0){
 			return false;
 		}

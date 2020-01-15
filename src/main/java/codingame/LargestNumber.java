@@ -1,11 +1,13 @@
 package codingame;
 
 import java.util.Arrays;
+import java.util.OptionalInt;
 
 public class LargestNumber {
 	
 	static int findLargest (int[] numbers){
 		Arrays.sort(numbers); //return numbers[numbers.length -1];
+		int max1 = Arrays.stream(numbers).max().getAsInt();
 		if(numbers.length > 1){
 			int max = 0;
 			for(int i = 0;i<numbers.length;i++){
