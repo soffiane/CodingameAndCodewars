@@ -1,7 +1,6 @@
 package codingame;
 
 import java.util.Arrays;
-import java.util.OptionalInt;
 
 public class LargestNumber {
 	

@@ -9,34 +9,24 @@ class ClosestToZero {
 			return 0;
 		}
 		int closestToZero = ints[0];
-		for (int i =0;i<ints.length;i++) {
+		for (int i =1;i<ints.length;i++) {
 			int abs = Math.abs(ints[i]);
-			int absClosest = Math.abs(closestToZero);
-			if (abs < absClosest) {
+			if ( abs < Math.abs(closestToZero)) {
+				closestToZero = ints[i];
+			} else if (abs == Math.abs(closestToZero) && closestToZero < 0 && ints[i] > 0) {
 				closestToZero = abs;
-			} else if (abs == absClosest && closestToZero < 0) {
-				closestToZero = i;
 			}
 		}
 		return closestToZero;
 	}
 	
 	public static void main (String [] args) {
-		System.out.print(closestToZero(new int[]{-2,2}));
+		/*System.out.println(closestToZero(new int[]{7,5,9,1,4}));
+		System.out.println(closestToZero(new int[]{-273}));
+		System.out.println(closestToZero(new int[]{5526}));
+		System.out.println(closestToZero(new int[]{-15, -7, -9, -14, -12}));*/
+		System.out.println(closestToZero(new int[]{-10,-10}));
+		/*System.out.println(closestToZero(new int[]{}));
+		System.out.println(closestToZero(new int[]{15, -7, 9 ,14, 7 ,12}));*/
 	}
-
-	//Le résultat est correct avec un jeu de données simple: {7 5 9 1 4} -> 1
-	//Résolution de problèmes+70pts
-	//La solution fonctionne avec -273 seul
-	//Résolution de problèmes+20pts
-	//La solution fonctionne avec 5526 seul
-	//Résolution de problèmes+20pts
-	//La solution fonctionne quand les données ne contiennent que des nombres négatifs : {-15 -7 -9 -14 -12} -> -7
-	//Résolution de problèmes+35pts
-	//La solution fonctionne avec 2 températures négatives égales : {-10 -10} -> -10
-	//Résolution de problèmes+35pts
-	//La solution affiche 0 s'il n'y a pas de température
-	//Résolution de problèmes+35pts
-	//Quand 2 températures sont aussi proches de 0, alors la positive l'emporte : {15 -7 9 14 7 12} -> 7
-	//Résolution de problèmes+85pts
 }
