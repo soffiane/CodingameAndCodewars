@@ -46,8 +46,7 @@ public class Person {
 
     public static void main(String[] args) {
         int[] tab = {4, -1, 10, 16, 18};
-        for (int i = 0; i < tab.length; i++) {
-            int age = tab[i];
+        for (int age : tab) {
             Person p = new Person(age);
             p.amIOld();
             for (int j = 0; j < 3; j++) {
