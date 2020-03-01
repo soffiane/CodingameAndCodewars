@@ -32,13 +32,13 @@ public class FilePath {
     public Provided.Response parseLine(String line) throws IllegalArgumentException {
         String[] valeurs = line.split(",");
         Provided.Response reponse = new Provided.Response();
-        reponse.setId(Integer.valueOf(valeurs[0]));
+        reponse.setId(Integer.parseInt(valeurs[0]));
         reponse.setNom(valeurs[1]);
         reponse.setPrenom(valeurs[2]);
         reponse.setAdresse(valeurs[3]);
         reponse.setCodePostal(valeurs[4]);
         reponse.setVille(valeurs[5]);
-        reponse.setNbEnfants(Integer.valueOf(valeurs[6]));
+        reponse.setNbEnfants(Integer.parseInt(valeurs[6]));
         reponse.setCatSocioPro(Provided.CategorieSocioProfessionnelle.valueOf(valeurs[7]));
         reponse.setRevenu(Integer.valueOf(valeurs[8]));
         reponse.setProprietaire(Boolean.getBoolean(valeurs[9]));

@@ -7,7 +7,8 @@ import java.util.Scanner;
  * Objectif
  *
  * L'animation d'une colonie de vacances suppose parfois de la préparation.
- * Dans votre groupe, les enfants ayant entre 5 ans (inclus) et 9 ans (inclus) vont participer à l'activité toboggan. Vous connaissez l'age de tous les enfants et vous cherchez à déterminer combien d'enfants vont participer à l'activité.
+ * Dans votre groupe, les enfants ayant entre 5 ans (inclus) et 9 ans (inclus) vont participer à l'activité toboggan.
+ * Vous connaissez l'age de tous les enfants et vous cherchez à déterminer combien d'enfants vont participer à l'activité.
  *
  * Données
  * Entrée

@@ -1,8 +1,7 @@
-/**
+package codingame; /**
  * C'est un code issu d'un test technique sur skillvalue pour alteca
  * test sur les fonctionnalités de Java 8 : ici les acces concurrents et les threads (executorservice)
  */
-package codingame;
 
 import java.util.Arrays;
 import java.util.concurrent.ExecutorService;

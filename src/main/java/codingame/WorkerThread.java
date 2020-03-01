@@ -1,9 +1,7 @@
-/**
+package codingame; /**
  * C'est un code issu d'un test technique sur skillvalue pour alteca
  * test sur les fonctionnalités de Java 8 : ici les thread et executorservice
  */
-
-package codingame;
 
 import java.time.LocalTime;
 import java.time.format.DateTimeFormatter;
@@ -23,7 +21,7 @@ public class WorkerThread implements Runnable {
     public void run() {
         try {
             Thread.sleep(100L);
-        } catch (InterruptedException e){
+        } catch (InterruptedException e) {
             NOW.plusHours(offset);
             System.out.println(DateTimeFormatter.ofPattern("HH:mm").format(NOW));
         }
@@ -33,10 +31,18 @@ public class WorkerThread implements Runnable {
         ExecutorService executorService = Executors.newCachedThreadPool();
 
         for(int i =0;i<10;i++){
-            executorService.execute(new WorkerThread(i));
+            int finalI = i;
+            executorService.execute(() -> {
+                try {
+                    Thread.sleep(100L);
+                    LocalTime localTime = NOW.plusHours(finalI);
+                    System.out.println(DateTimeFormatter.ofPattern("HH:mm").format(localTime));
+                } catch (InterruptedException e){
+                    System.out.println("fin tache");
+                    e.printStackTrace();
+                }
+            });
         }
-
         executorService.shutdown();
-        while(!executorService.isTerminated()) {}
     }
 }

@@ -1,7 +1,5 @@
 package codingame;
 
-import java.util.Arrays;
-
 public class FileNameExtension {
 
     public String getFileNameExtension(String filename) {

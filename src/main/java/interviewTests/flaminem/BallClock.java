@@ -34,16 +34,16 @@ public class BallClock {
 		}
 		try {
 			/* retrieving values from args */
-			if (Integer.valueOf(args[0]) < 27 || Integer.valueOf(args[0]) > 127) {
+			if (Integer.parseInt(args[0]) < 27 || Integer.parseInt(args[0]) > 127) {
 				throw new IllegalArgumentException("Queue size needs to be between 27 and 127");
 			}
-			if(args[0] != null && Integer.valueOf(args[0]) > 0) {
-				ballStackSize = Integer.valueOf(args[0]);
+			if(args[0] != null && Integer.parseInt(args[0]) > 0) {
+				ballStackSize = Integer.parseInt(args[0]);
 			}
-			if(args.length > 1 && args[1] != null && Integer.valueOf(args[1]) > 0) {
-				minutesLimit = Integer.valueOf(args[1]);
+			if(args.length > 1 && args[1] != null && Integer.parseInt(args[1]) > 0) {
+				minutesLimit = Integer.parseInt(args[1]);
 			}
-			for (int i = 2; i <= Integer.valueOf(args[0]); i++) {
+			for (int i = 2; i <= Integer.parseInt(args[0]); i++) {
 				balls.add(i);
 				initialStack.add(i);
 			}
