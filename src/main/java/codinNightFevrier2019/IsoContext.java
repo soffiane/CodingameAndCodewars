@@ -3,7 +3,7 @@ package codinNightFevrier2019;
 public class IsoContext {
 
     // nombre de sommets dans le graphe
-    int n=5;
+    /*int n=5;
 
     // matrice d'adjacence du graphe
     int[][] adjacencymatrix = new int[][] {
@@ -47,5 +47,5 @@ public class IsoContext {
 
         taboo[position]=false; // on retire le caillou
     }
-
+*/
 }

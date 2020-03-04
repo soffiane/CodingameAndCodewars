@@ -2,9 +2,9 @@ package codinNightFevrier2019;
 
 import java.io.File;
 import java.io.FileNotFoundException;
+import java.util.HashMap;
+import java.util.Map;
 import java.util.Scanner;
-import java.util.stream.Stream;
-import java.util.stream.StreamSupport;
 
 /**
  * # 6 - Le sprint final
@@ -80,61 +80,28 @@ import java.util.stream.StreamSupport;
  */
 public class SprintFinal {
 
-    public static int numPaths = 0;
-    private static char[] path;
-    static int target = 0;
+	public static int numPaths = 0;
+	static int target = 0;
 
 
-    public static int process(String fileName) throws FileNotFoundException {
+	public static int process(String fileName) throws FileNotFoundException {
 
-        Scanner in = new Scanner(new File(fileName));
-        target = in.nextInt();
-        String map = in.nextLine();
-        path = map.toCharArray();
-
-        explore(path[0], 0);
-
-        //Cet entier doit être retourné **modulo 10^9 + 7**
-        return numPaths;
-    }
-
-    static void explore(char c, int position) {
-        if (c == '.') {
-            path[position] = '#';
-            return;
-        } else if (c == '#') {
-            if (position > 1) {
-                explore(path[position - 1], position - 1);
-            }
-            if (position < target) {
-                explore(path[position + 1], position + 1);
-            }
-        }
-
-        // on est sur le sommet d'arrivé -> fini
-        if (position == target) {
-            // affiche la solution
-            for (int i = 0; i <= path.length; i++) {
-                System.out.print(path[i] + " ");
-            }
-            System.out.print("\n");
-            return;
-        }
-
-        path[position] = '#'; // on pose un caillou
-
-        // on explore les chemins restants
-        /*for (int i = 0; i < n; i++) {
-            if (adjacencymatrix[position][i] == 0 || taboo[i]) continue;
-            explore(path[i], i, depth + 1);
-        }
-
-        taboo[position] = false; // on retire le caillou*/
-    }
+		Scanner in = new Scanner(new File(fileName));
+		target = in.nextInt();
+		String map = in.nextLine();
+		char[] path = map.toCharArray();
+		Map<Character, Boolean> characterBooleanMap = new HashMap<>();
+		for (int i = 0; i < path.length; i++) {
+			if (path[i] == '#') {
+			}
+		}
+		//Cet entier doit être retourné **modulo 10^9 + 7**
+		return numPaths;
+	}
 
 
-    public static void main(String... args) throws FileNotFoundException {
 
-        process("src/main/ressources/challenge/testcases.txt");
-    }
+	public static void main(String... args) throws FileNotFoundException {
+		process("src/main/ressources/challenge/testcases.txt");
+	}
 }
