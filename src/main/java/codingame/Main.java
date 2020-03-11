@@ -17,7 +17,7 @@ public class Main {
             }
         };
         Comparator<String> size = Comparator.comparingInt(String::length);
-        IntStream.range(1,1000).boxed().map(i ->i.toString())
+        IntStream.range(1,1000).boxed().map(Object::toString)
                 .sorted(alphabetical.thenComparing(size))
                 .collect(Collectors.toList());
     }

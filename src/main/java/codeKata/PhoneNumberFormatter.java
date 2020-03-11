@@ -16,7 +16,7 @@ import java.util.stream.Collectors;
 public class PhoneNumberFormatter {
 
     public static String createPhoneNumber(int[] numbers) {
-        StringBuilder sb = new StringBuilder(Arrays.stream(numbers).mapToObj(operand -> String.valueOf(operand)).collect(Collectors.joining()));
+        StringBuilder sb = new StringBuilder(Arrays.stream(numbers).mapToObj(String::valueOf).collect(Collectors.joining()));
         return sb.insert(0, "(").insert(4, ") ").insert(9, "-").toString();
 
         // ou return String.format("(%d%d%d) %d%d%d-%d%d%d%d", java.util.stream.IntStream.of(numbers).boxed().toArray());
