@@ -1,8 +1,9 @@
 package codinNightFevrier2019;
 
 
-import java.util.*;
-import java.lang.Math;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
 
 public class App {
     //les checkpoints doivent être parcourus par coordonnée X croissante.
