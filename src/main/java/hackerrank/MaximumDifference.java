@@ -36,6 +36,23 @@ import java.util.stream.IntStream;
  */
 public class MaximumDifference {
 
+	static class Difference {
+		private int[] elements;
+		public int maximumDifference;
+
+		public Difference(int[] elements) {
+			this.elements = elements;
+		}
+
+		public void computeDifference() {
+			IntSummaryStatistics stats = IntStream.of(elements).summaryStatistics();
+			if (stats.getCount() == 0) {
+				maximumDifference = 0;
+			}
+			maximumDifference =  stats.getMax() - stats.getMin();
+		}
+	}
+
 	public static void main(String[] args) {
 		Scanner sc = new Scanner(System.in);
 		int n = sc.nextInt();
@@ -51,19 +68,4 @@ public class MaximumDifference {
 	}
 }
 
-class Difference {
-	private int[] elements;
-	public int maximumDifference;
 
-	public Difference(int[] elements) {
-		this.elements = elements;
-	}
-
-	public void computeDifference() {
-		IntSummaryStatistics stats = IntStream.of(elements).summaryStatistics();
-		if (stats.getCount() == 0) {
-			maximumDifference = 0;
-		}
-		maximumDifference =  stats.getMax() - stats.getMin();
-	}
-}

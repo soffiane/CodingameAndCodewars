@@ -3,6 +3,7 @@ package hackerrank;
 import java.util.Scanner;
 
 /**
+ * Day 15 : 2D Arrays
  * Objective
  * Today, we're building on our knowledge of Arrays by adding another dimension. Check out the Tutorial tab for learning materials and an instructional video!
  *
@@ -93,16 +94,19 @@ public class TwoDimensionArrays {
 	}
 
 	private static void calculateMaxHourglass(int[][] arr) {
-		int sum = 0;
-		for(int i = 0; i < 3; i++) {
-			for(int j = 0; j < 3; j++) {
-				if(!(i == 1 && (j == 0 || j ==2))){
-					sum+=arr[i][j];
+		int max=Integer.MIN_VALUE;
+		int sum=0;
+		//ligne par ligne
+		for(int i=0;i<arr.length-2;i++){
+			//colonnes
+			for(int j=0;j<arr.length-2;j++){
+				//on calcule la somme pour 0 0, 0 1, 0 2, 1 1, 2 0, 2 1 et 2 2 ==> et on decalle par colonne puis par ligne
+				sum=arr[i][j]+arr[i][j+1]+arr[i][j+2]+arr[i+1][j+1]+arr[i+2][j]+arr[i+2][j+1]+arr[i+2][j+2];
+				if(sum>max){
+					max=sum;
 				}
-				System.out.print(arr[i][j]);
 			}
-			System.out.println();
 		}
-		System.out.println("sum = "+sum);
+		System.out.println(max);
 	}
 }
