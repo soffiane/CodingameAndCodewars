@@ -32,14 +32,16 @@ public class User {
         this.lastName = lastName;
         this.name = Optional.ofNullable(name);
     }
-}
 
-class Pouet{
-    public static void main(String... args){
-        //Supplier<User> s = User::new; --> il n'y a pas le constructeur par defaut ici
-        Function<String,User> f = User::new; // function prend un String en entree et renvoie un User = le constructeur a 1 parametre
-        BiFunction<String,String,User> bf = User::new; //BiFunction prend deux String en entree et renvoie un User = le constructeur a 2 parametres
-        User pouet = new User("Conner","John","Test");
-        System.out.println(pouet.getName());
+    static class Pouet{
+        public static void main(String... args){
+            //Supplier<User> s = User::new; --> il n'y a pas le constructeur par defaut ici
+            Function<String,User> f = User::new; // function prend un String en entree et renvoie un User = le constructeur a 1 parametre
+            BiFunction<String,String,User> bf = User::new; //BiFunction prend deux String en entree et renvoie un User = le constructeur a 2 parametres
+            User pouet = new User("Conner","John","Test");
+            System.out.println(pouet.getName());
+        }
     }
 }
+
+

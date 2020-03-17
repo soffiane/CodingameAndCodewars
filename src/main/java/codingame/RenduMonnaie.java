@@ -1,10 +1,6 @@
 package codingame;
 
-class Change {
-    long coin2 = 0;
-    long bill5 = 0;
-    long bill10 = 0;
-}
+
 
 public class RenduMonnaie {
     static Change optimalChange(long s) {
@@ -28,6 +24,13 @@ public class RenduMonnaie {
             return change;
         }
     }
+
+    static class Change {
+        long coin2 = 0;
+        long bill5 = 0;
+        long bill10 = 0;
+    }
+
     public static void main(String... args){
         long s = 10L; // Change this value to perform other tests
         Change m = RenduMonnaie.optimalChange(s);

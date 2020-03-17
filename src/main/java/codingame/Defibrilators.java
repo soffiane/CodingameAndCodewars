@@ -83,8 +83,8 @@ public class Defibrilators {
             defibrilateur.setNom(informations[1]);
             defibrilateur.setAdresse(informations[2]);
             defibrilateur.setTelephone(informations[3]);
-            defibrilateur.setLongitude(Double.valueOf(informations[4].replace(",", ".")));
-            defibrilateur.setLatitude(Double.valueOf(informations[5].replace(",", ".")));
+            defibrilateur.setLongitude(Double.parseDouble(informations[4].replace(",", ".")));
+            defibrilateur.setLatitude(Double.parseDouble(informations[5].replace(",", ".")));
             defibs.add(defibrilateur);
         }
 
@@ -94,104 +94,89 @@ public class Defibrilators {
     public static void main(String... args) throws FileNotFoundException {
         process("src/main/ressources/codingameFile/Defibrilators/exemple.txt");
     }
+
+    static class Defibrilateur {
+        private String numeroIdentifiant;
+        private String nom;
+        private String adresse;
+        private String telephone;
+        private double longitude;
+        private double latitude;
+
+        public String getNumeroIdentifiant() {
+            return numeroIdentifiant;
+        }
+
+        public void setNumeroIdentifiant(String numeroIdentifiant) {
+            this.numeroIdentifiant = numeroIdentifiant;
+        }
+
+        public String getNom() {
+            return nom;
+        }
+
+        public void setNom(String nom) {
+            this.nom = nom;
+        }
+
+        public void setAdresse(String adresse) {
+            this.adresse = adresse;
+        }
+
+        public double getLongitudeInRadians() {
+            return Math.toRadians(longitude);
+        }
+
+        public void setLongitude(double longitude) {
+            this.longitude = longitude;
+        }
+
+        public double getLatitudeInRadians() {
+            return Math.toRadians(latitude);
+        }
+
+        public void setLatitude(double latitude) {
+            this.latitude = latitude;
+        }
+
+        public void setTelephone(String telephone) {
+            this.telephone = telephone;
+        }
+
+        public double getDistanceWithUser(String lon, String lat) {
+            double userLongitude = Math.toRadians(Double.valueOf(lon));
+            double userLatitude = Math.toRadians(Double.valueOf(lat));
+
+            double x = (this.getLongitudeInRadians() - userLongitude) * Math.cos((this.getLatitudeInRadians() + userLatitude) / 2);
+            double y = this.getLatitudeInRadians() - userLatitude;
+            return Math.sqrt((x * x) + (y * y)) * 6371;
+        }
+
+        /** solution sans la logique objet
+         * public static void main(String args[])
+         *     {
+         *         Scanner in = new Scanner(System.in);
+         *         double userLon = Double.parseDouble(in.next().replace(',','.'));
+         *         double userLat = Double.parseDouble(in.next().replace(',','.'));
+         *         int defibrillatorsCount = in.nextInt(); in.nextLine();
+         *
+         *         double earthRadius = 6371.0;
+         *         String closestDef = "none";
+         *         double closestDistance = Double.MAX_VALUE;
+         *
+         *         for (int i = 0; i < defibrillatorsCount; i++)
+         *         {
+         *             String[] def = in.nextLine().split("\\;");
+         *             double defLon = Double.parseDouble(def[4].replace(',','.'));
+         *             double defLat = Double.parseDouble(def[5].replace(',','.'));
+         *             double x = (userLon-defLon)*Math.cos((userLat+defLat)*0.5);
+         *             double y = userLat-defLat;
+         *             double d = Math.sqrt(x*x+y*y) * earthRadius;
+         *             if (d < closestDistance) {closestDistance = d;closestDef = def[1];}
+         *         }
+         *         System.out.println(closestDef);
+         *     }
+         */
+    }
 }
 
-class Defibrilateur {
-    private String numeroIdentifiant;
-    private String nom;
-    private String adresse;
-    private String telephone;
-    private double longitude;
-    private double latitude;
-
-    public String getNumeroIdentifiant() {
-        return numeroIdentifiant;
-    }
-
-    public void setNumeroIdentifiant(String numeroIdentifiant) {
-        this.numeroIdentifiant = numeroIdentifiant;
-    }
-
-    public String getNom() {
-        return nom;
-    }
-
-    public void setNom(String nom) {
-        this.nom = nom;
-    }
-
-    public String getAdresse() {
-        return adresse;
-    }
-
-    public void setAdresse(String adresse) {
-        this.adresse = adresse;
-    }
-
-    public double getLongitude() {
-        return longitude;
-    }
-
-    public double getLongitudeInRadians() {
-        return Math.toRadians(longitude);
-    }
-
-    public void setLongitude(double longitude) {
-        this.longitude = longitude;
-    }
-
-    public double getLatitude() {
-        return latitude;
-    }
-
-    public double getLatitudeInRadians() {
-        return Math.toRadians(latitude);
-    }
-
-    public void setLatitude(double latitude) {
-        this.latitude = latitude;
-    }
-
-    public String getTelephone() {
-        return telephone;
-    }
-
-    public void setTelephone(String telephone) {
-        this.telephone = telephone;
-    }
-
-    public double getDistanceWithUser(String lon, String lat) {
-        double userLongitude = Math.toRadians(Double.valueOf(lon));
-        double userLatitude = Math.toRadians(Double.valueOf(lat));
-
-        double x = (this.getLongitudeInRadians() - userLongitude) * Math.cos((this.getLatitudeInRadians() + userLatitude) / 2);
-        double y = this.getLatitudeInRadians() - userLatitude;
-        return Math.sqrt((x * x) + (y * y)) * 6371;
-    }
-
-    /** solution sans la logique objet
-     * public static void main(String args[])
-     *     {
-     *         Scanner in = new Scanner(System.in);
-     *         double userLon = Double.parseDouble(in.next().replace(',','.'));
-     *         double userLat = Double.parseDouble(in.next().replace(',','.'));
-     *         int defibrillatorsCount = in.nextInt(); in.nextLine();
-     *
-     *         double earthRadius = 6371.0;
-     *         String closestDef = "none";
-     *         double closestDistance = Double.MAX_VALUE;
-     *
-     *         for (int i = 0; i < defibrillatorsCount; i++)
-     *         {
-     *             String[] def = in.nextLine().split("\\;");
-     *             double defLon = Double.parseDouble(def[4].replace(',','.'));
-     *             double defLat = Double.parseDouble(def[5].replace(',','.'));
-     *             double x = (userLon-defLon)*Math.cos((userLat+defLat)*0.5);
-     *             double y = userLat-defLat;
-     *             double d = Math.sqrt(x*x+y*y) * earthRadius;
-     *             if (d < closestDistance) {closestDistance = d;closestDef = def[1];}
-     *         }
-     *         System.out.println(closestDef);
-     *     }
-     */
-}
