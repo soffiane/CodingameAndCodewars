@@ -39,7 +39,7 @@ class Node {
 		small.left.right.value = 15;*/
 
         Node n = small.find(11);
-        System.out.println(n);
+        System.out.println(n.value);
 
         // Node x = large.find(100000);
     }
