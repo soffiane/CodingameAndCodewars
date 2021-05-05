@@ -6,7 +6,8 @@ import java.util.Scanner;
 /**
  * Day 15 : Linked List
  *
- * A Node class is provided for you in the editor. A Node object has an integer data field, DATA , and a Node instance pointer, NEXT , pointing to another node (i.e.: the next node in a list).
+ * A Node class is provided for you in the editor. A Node object has an integer data field, DATA , and a Node instance pointer, NEXT ,
+ * pointing to another node (i.e.: the next node in a list).
  * A Node insert function is also declared in your editor. It has two parameters: a pointer, HEAD, pointing to the first node of a linked list,
  * and an integer DATA value that must be added to the end of the list as a new Node object.
  *

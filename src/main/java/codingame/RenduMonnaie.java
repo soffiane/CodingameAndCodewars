@@ -32,7 +32,7 @@ public class RenduMonnaie {
     }
 
     public static void main(String... args){
-        long s = 10L; // Change this value to perform other tests
+        long s =  922337203685477587L; // Change this value to perform other tests
         Change m = RenduMonnaie.optimalChange(s);
 
         System.out.println("Coin(s)  2€: " + m.coin2);
